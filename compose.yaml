@@ -1,0 +1,4 @@
+services:
+  graphchi-social-facebook:
+    build: ./graphchi-c/
+    command: "bin/example_apps/pagerank file data/social-facebook/facebook_combined.txt filetype edgelist niters 10"
