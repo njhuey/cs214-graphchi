@@ -1,36 +1,53 @@
+# Shared resoruce limits definition
+x-deploy: &default-resources
+  deploy:
+    resources:
+      limits:
+        memory: 512M
+        cpus: "1.0"
+
 services:
   pagerank-facebook:
     build: ./graphchi-c/
     command: "bin/example_apps/pagerank file data/ego-Facebook/facebook_combined.txt filetype edgelist niters 100"
+    <<: *default-resources
 
   pagerank-epinions1:
     build: ./graphchi-c/
     command: "bin/example_apps/pagerank file data/soc-Epinions1/soc-Epinions1.txt filetype edgelist niters 100"
+    <<: *default-resources
 
   pagerank-google:
     build: ./graphchi-c/
     command: "bin/example_apps/pagerank file data/web-Google/web-Google.txt filetype edgelist niters 100"
+    <<: *default-resources
 
   connectedcomponents-facebook:
     build: ./graphchi-c/
     command: "bin/example_apps/connectedcomponents file data/ego-Facebook/facebook_combined.txt filetype edgelist"
+    <<: *default-resources
 
   connectedcomponents-epinions1:
     build: ./graphchi-c/
     command: "bin/example_apps/connectedcomponents file data/soc-Epinions1/soc-Epinions1.txt filetype edgelist"
+    <<: *default-resources
 
   connectedcomponents-google:
     build: ./graphchi-c/
     command: "bin/example_apps/connectedcomponents file data/web-Google/web-Google.txt filetype edgelist"
+    <<: *default-resources
 
   trianglecounting-facebook:
     build: ./graphchi-c/
     command: "bin/example_apps/trianglecounting file data/ego-Facebook/facebook_combined.txt filetype edgelist nshards 2"
+    <<: *default-resources
 
   trianglecounting-epinions1:
     build: ./graphchi-c/
     command: "bin/example_apps/trianglecounting file data/soc-Epinions1/soc-Epinions1.txt filetype edgelist nshards 2"
+    <<: *default-resources
 
   trianglecounting-google:
     build: ./graphchi-c/
     command: "bin/example_apps/trianglecounting file data/web-Google/web-Google.txt filetype edgelist nshards 2"
+    <<: *default-resources
