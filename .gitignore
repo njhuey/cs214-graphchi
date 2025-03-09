@@ -1,1 +1,6 @@
 graphchi-c/data
+graphchy-c/graphchi_metrics.html
+graphchy-c/graphchi_metrics.txt
+output/
+final_metrics/
+.ipynb_checkpoints/
